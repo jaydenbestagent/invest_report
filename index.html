@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JD Invest Bot - Reports</title>
+    <title>JD Invest Reports</title>
     <style>
         :root { --bg: #f9f9f9; --text: #333; --card-bg: #fff; --border: #ddd; --primary: #0366d6; --tag-date-bg: #eee; --tag-date-text: #555; }
         @media (prefers-color-scheme: dark) {
@@ -30,7 +30,7 @@
 </head>
 <body>
     <h1>📈 JD Invest Reports</h1>
-    <div class="update-time">Last updated: 2026-03-01 21:14:27</div>
+    <div class="update-time">Last updated: 2026-03-01 21:24:33</div>
 
     <div class="controls">
         <input type="text" id="searchInput" placeholder="Search files...">
@@ -47,22 +47,20 @@
     <div id="contentArea"></div>
 
     <script>
-        const files = [{"path": "us/us_field/LEU/2026-02-23/field_report_LEU_2026-02-23.md", "href": "us/us_field/LEU/2026-02-23/field_report_LEU_2026-02-23.html", "name": "field_report_LEU_2026-02-23.md", "skill": "us_field", "ticker": "LEU", "date": "2026-02-23", "ext": ".md", "folder": "us/us_field/LEU/2026-02-23"}, {"path": "us/us_field/LEU/2026-02-23/zh/field_report_LEU_2026-02-23.md", "href": "us/us_field/LEU/2026-02-23/zh/field_report_LEU_2026-02-23.html", "name": "field_report_LEU_2026-02-23.md", "skill": "us_field", "ticker": "LEU", "date": "2026-02-23", "ext": ".md", "folder": "us/us_field/LEU/2026-02-23/zh"}, {"path": "us/us_field/TTWO/2026-02-24/field_report_TTWO_2026-02-24.md", "href": "us/us_field/TTWO/2026-02-24/field_report_TTWO_2026-02-24.html", "name": "field_report_TTWO_2026-02-24.md", "skill": "us_field", "ticker": "TTWO", "date": "2026-02-24", "ext": ".md", "folder": "us/us_field/TTWO/2026-02-24"}, {"path": "us/us_field/TTWO/2026-02-24/zh/field_report_TTWO_2026-02-24.md", "href": "us/us_field/TTWO/2026-02-24/zh/field_report_TTWO_2026-02-24.html", "name": "field_report_TTWO_2026-02-24.md", "skill": "us_field", "ticker": "TTWO", "date": "2026-02-24", "ext": ".md", "folder": "us/us_field/TTWO/2026-02-24/zh"}, {"path": "us/us_strategy/TTWO/2026-02-24/strategy_report_TTWO_2026-02-24.md", "href": "us/us_strategy/TTWO/2026-02-24/strategy_report_TTWO_2026-02-24.html", "name": "strategy_report_TTWO_2026-02-24.md", "skill": "us_strategy", "ticker": "TTWO", "date": "2026-02-24", "ext": ".md", "folder": "us/us_strategy/TTWO/2026-02-24"}, {"path": "us/us_strategy/TTWO/2026-02-24/zh/strategy_report_TTWO_2026-02-24.md", "href": "us/us_strategy/TTWO/2026-02-24/zh/strategy_report_TTWO_2026-02-24.html", "name": "strategy_report_TTWO_2026-02-24.md", "skill": "us_strategy", "ticker": "TTWO", "date": "2026-02-24", "ext": ".md", "folder": "us/us_strategy/TTWO/2026-02-24/zh"}, {"path": "us/us_fund/LEU/2026-02-23/fund_report_LEU_2026-02-23.md", "href": "us/us_fund/LEU/2026-02-23/fund_report_LEU_2026-02-23.html", "name": "fund_report_LEU_2026-02-23.md", "skill": "us_fund", "ticker": "LEU", "date": "2026-02-23", "ext": ".md", "folder": "us/us_fund/LEU/2026-02-23"}, {"path": "us/us_fund/LEU/2026-02-23/zh/fund_report_LEU_2026-02-23.md", "href": "us/us_fund/LEU/2026-02-23/zh/fund_report_LEU_2026-02-23.html", "name": "fund_report_LEU_2026-02-23.md", "skill": "us_fund", "ticker": "LEU", "date": "2026-02-23", "ext": ".md", "folder": "us/us_fund/LEU/2026-02-23/zh"}, {"path": "us/us_fund/BE/2026-02-27/fund_report_BE_2026-02-27.md", "href": "us/us_fund/BE/2026-02-27/fund_report_BE_2026-02-27.html", "name": "fund_report_BE_2026-02-27.md", "skill": "us_fund", "ticker": "BE", "date": "2026-02-27", "ext": ".md", "folder": "us/us_fund/BE/2026-02-27"}, {"path": "us/us_fund/TTWO/2026-02-23/fund_report_TTWO_2026-02-23.md", "href": "us/us_fund/TTWO/2026-02-23/fund_report_TTWO_2026-02-23.html", "name": "fund_report_TTWO_2026-02-23.md", "skill": "us_fund", "ticker": "TTWO", "date": "2026-02-23", "ext": ".md", "folder": "us/us_fund/TTWO/2026-02-23"}, {"path": "us/us_fund/TTWO/2026-02-23/zh/fund_report_TTWO_2026-02-23.md", "href": "us/us_fund/TTWO/2026-02-23/zh/fund_report_TTWO_2026-02-23.html", "name": "fund_report_TTWO_2026-02-23.md", "skill": "us_fund", "ticker": "TTWO", "date": "2026-02-23", "ext": ".md", "folder": "us/us_fund/TTWO/2026-02-23/zh"}, {"path": "us/us_tech/TTWO/2026-02-24/TTWO_chart_6mo_20260224.png", "href": "us/us_tech/TTWO/2026-02-24/TTWO_chart_6mo_20260224.png", "name": "TTWO_chart_6mo_20260224.png", "skill": "us_tech", "ticker": "TTWO", "date": "2026-02-24", "ext": ".png", "folder": "us/us_tech/TTWO/2026-02-24"}, {"path": "us/us_tech/TTWO/2026-02-24/tech_report_TTWO_2026-02-24.md", "href": "us/us_tech/TTWO/2026-02-24/tech_report_TTWO_2026-02-24.html", "name": "tech_report_TTWO_2026-02-24.md", "skill": "us_tech", "ticker": "TTWO", "date": "2026-02-24", "ext": ".md", "folder": "us/us_tech/TTWO/2026-02-24"}, {"path": "us/us_tech/TTWO/2026-02-24/zh/tech_report_TTWO_2026-02-24.md", "href": "us/us_tech/TTWO/2026-02-24/zh/tech_report_TTWO_2026-02-24.html", "name": "tech_report_TTWO_2026-02-24.md", "skill": "us_tech", "ticker": "TTWO", "date": "2026-02-24", "ext": ".md", "folder": "us/us_tech/TTWO/2026-02-24/zh"}, {"path": "us/us_news/TTWO/2026-02-24/news_report_TTWO_2026-02-24_7.md", "href": "us/us_news/TTWO/2026-02-24/news_report_TTWO_2026-02-24_7.html", "name": "news_report_TTWO_2026-02-24_7.md", "skill": "us_news", "ticker": "TTWO", "date": "2026-02-24", "ext": ".md", "folder": "us/us_news/TTWO/2026-02-24"}, {"path": "us/us_news/TTWO/2026-02-24/zh/news_report_TTWO_2026-02-24_7.md", "href": "us/us_news/TTWO/2026-02-24/zh/news_report_TTWO_2026-02-24_7.html", "name": "news_report_TTWO_2026-02-24_7.md", "skill": "us_news", "ticker": "TTWO", "date": "2026-02-24", "ext": ".md", "folder": "us/us_news/TTWO/2026-02-24/zh"}, {"path": "us/us_macro/2026-02-24/macro_report_2026-02-24.md", "href": "us/us_macro/2026-02-24/macro_report_2026-02-24.html", "name": "macro_report_2026-02-24.md", "skill": "us_macro", "ticker": "2026-02-24", "date": "macro_report_2026-02-24.md", "ext": ".md", "folder": "us/us_macro/2026-02-24"}, {"path": "us/us_macro/2026-02-23/macro_report_2026-02-23.md", "href": "us/us_macro/2026-02-23/macro_report_2026-02-23.html", "name": "macro_report_2026-02-23.md", "skill": "us_macro", "ticker": "2026-02-23", "date": "macro_report_2026-02-23.md", "ext": ".md", "folder": "us/us_macro/2026-02-23"}, {"path": "us/us_macro/2026-02-23/zh/macro_report_2026-02-23.md", "href": "us/us_macro/2026-02-23/zh/macro_report_2026-02-23.html", "name": "macro_report_2026-02-23.md", "skill": "us_macro", "ticker": "2026-02-23", "date": "zh", "ext": ".md", "folder": "us/us_macro/2026-02-23/zh"}, {"path": "us/us_macro/2026-02-24/zh/macro_report_2026-02-24.md", "href": "us/us_macro/2026-02-24/zh/macro_report_2026-02-24.html", "name": "macro_report_2026-02-24.md", "skill": "us_macro", "ticker": "2026-02-24", "date": "zh", "ext": ".md", "folder": "us/us_macro/2026-02-24/zh"}];
+        const files = [{"path": "us/us_field/LEU/2026-02-23/field_report_LEU_2026-02-23.md", "href": "us/us_field/LEU/2026-02-23/field_report_LEU_2026-02-23.html", "name": "field_report_LEU_2026-02-23.md", "skill": "us_field", "ticker": "LEU", "date": "2026-02-23", "mtime": 1771844841.0, "ext": ".md", "folder": "us/us_field/LEU/2026-02-23"}, {"path": "us/us_field/LEU/2026-02-23/zh/field_report_LEU_2026-02-23.md", "href": "us/us_field/LEU/2026-02-23/zh/field_report_LEU_2026-02-23.html", "name": "field_report_LEU_2026-02-23.md", "skill": "us_field", "ticker": "LEU", "date": "2026-02-23", "mtime": 1771940141.0, "ext": ".md", "folder": "us/us_field/LEU/2026-02-23/zh"}, {"path": "us/us_field/TTWO/2026-02-24/field_report_TTWO_2026-02-24.md", "href": "us/us_field/TTWO/2026-02-24/field_report_TTWO_2026-02-24.html", "name": "field_report_TTWO_2026-02-24.md", "skill": "us_field", "ticker": "TTWO", "date": "2026-02-24", "mtime": 1771934678.0, "ext": ".md", "folder": "us/us_field/TTWO/2026-02-24"}, {"path": "us/us_field/TTWO/2026-02-24/zh/field_report_TTWO_2026-02-24.md", "href": "us/us_field/TTWO/2026-02-24/zh/field_report_TTWO_2026-02-24.html", "name": "field_report_TTWO_2026-02-24.md", "skill": "us_field", "ticker": "TTWO", "date": "2026-02-24", "mtime": 1771940024.0, "ext": ".md", "folder": "us/us_field/TTWO/2026-02-24/zh"}, {"path": "us/us_strategy/TTWO/2026-02-24/strategy_report_TTWO_2026-02-24.md", "href": "us/us_strategy/TTWO/2026-02-24/strategy_report_TTWO_2026-02-24.html", "name": "strategy_report_TTWO_2026-02-24.md", "skill": "us_strategy", "ticker": "TTWO", "date": "2026-02-24", "mtime": 1771935407.0, "ext": ".md", "folder": "us/us_strategy/TTWO/2026-02-24"}, {"path": "us/us_strategy/TTWO/2026-02-24/zh/strategy_report_TTWO_2026-02-24.md", "href": "us/us_strategy/TTWO/2026-02-24/zh/strategy_report_TTWO_2026-02-24.html", "name": "strategy_report_TTWO_2026-02-24.md", "skill": "us_strategy", "ticker": "TTWO", "date": "2026-02-24", "mtime": 1771940028.0, "ext": ".md", "folder": "us/us_strategy/TTWO/2026-02-24/zh"}, {"path": "us/us_fund/LEU/2026-02-23/fund_report_LEU_2026-02-23.md", "href": "us/us_fund/LEU/2026-02-23/fund_report_LEU_2026-02-23.html", "name": "fund_report_LEU_2026-02-23.md", "skill": "us_fund", "ticker": "LEU", "date": "2026-02-23", "mtime": 1771826235.0, "ext": ".md", "folder": "us/us_fund/LEU/2026-02-23"}, {"path": "us/us_fund/LEU/2026-02-23/zh/fund_report_LEU_2026-02-23.md", "href": "us/us_fund/LEU/2026-02-23/zh/fund_report_LEU_2026-02-23.html", "name": "fund_report_LEU_2026-02-23.md", "skill": "us_fund", "ticker": "LEU", "date": "2026-02-23", "mtime": 1771940474.0, "ext": ".md", "folder": "us/us_fund/LEU/2026-02-23/zh"}, {"path": "us/us_fund/BE/2026-02-27/fund_report_BE_2026-02-27.md", "href": "us/us_fund/BE/2026-02-27/fund_report_BE_2026-02-27.html", "name": "fund_report_BE_2026-02-27.md", "skill": "us_fund", "ticker": "BE", "date": "2026-02-27", "mtime": 1772189488.0, "ext": ".md", "folder": "us/us_fund/BE/2026-02-27"}, {"path": "us/us_fund/TTWO/2026-02-23/fund_report_TTWO_2026-02-23.md", "href": "us/us_fund/TTWO/2026-02-23/fund_report_TTWO_2026-02-23.html", "name": "fund_report_TTWO_2026-02-23.md", "skill": "us_fund", "ticker": "TTWO", "date": "2026-02-23", "mtime": 1771934305.0, "ext": ".md", "folder": "us/us_fund/TTWO/2026-02-23"}, {"path": "us/us_fund/TTWO/2026-02-23/zh/fund_report_TTWO_2026-02-23.md", "href": "us/us_fund/TTWO/2026-02-23/zh/fund_report_TTWO_2026-02-23.html", "name": "fund_report_TTWO_2026-02-23.md", "skill": "us_fund", "ticker": "TTWO", "date": "2026-02-23", "mtime": 1771940815.0, "ext": ".md", "folder": "us/us_fund/TTWO/2026-02-23/zh"}, {"path": "us/us_tech/TTWO/2026-02-24/TTWO_chart_6mo_20260224.png", "href": "us/us_tech/TTWO/2026-02-24/TTWO_chart_6mo_20260224.png", "name": "TTWO_chart_6mo_20260224.png", "skill": "us_tech", "ticker": "TTWO", "date": "2026-02-24", "mtime": 1771912288.0, "ext": ".png", "folder": "us/us_tech/TTWO/2026-02-24"}, {"path": "us/us_tech/TTWO/2026-02-24/tech_report_TTWO_2026-02-24.md", "href": "us/us_tech/TTWO/2026-02-24/tech_report_TTWO_2026-02-24.html", "name": "tech_report_TTWO_2026-02-24.md", "skill": "us_tech", "ticker": "TTWO", "date": "2026-02-24", "mtime": 1771912386.0, "ext": ".md", "folder": "us/us_tech/TTWO/2026-02-24"}, {"path": "us/us_tech/TTWO/2026-02-24/zh/tech_report_TTWO_2026-02-24.md", "href": "us/us_tech/TTWO/2026-02-24/zh/tech_report_TTWO_2026-02-24.html", "name": "tech_report_TTWO_2026-02-24.md", "skill": "us_tech", "ticker": "TTWO", "date": "2026-02-24", "mtime": 1771940750.0, "ext": ".md", "folder": "us/us_tech/TTWO/2026-02-24/zh"}, {"path": "us/us_news/TTWO/2026-02-24/news_report_TTWO_2026-02-24_7.md", "href": "us/us_news/TTWO/2026-02-24/news_report_TTWO_2026-02-24_7.html", "name": "news_report_TTWO_2026-02-24_7.md", "skill": "us_news", "ticker": "TTWO", "date": "2026-02-24", "mtime": 1771930624.0, "ext": ".md", "folder": "us/us_news/TTWO/2026-02-24"}, {"path": "us/us_news/TTWO/2026-02-24/zh/news_report_TTWO_2026-02-24_7.md", "href": "us/us_news/TTWO/2026-02-24/zh/news_report_TTWO_2026-02-24_7.html", "name": "news_report_TTWO_2026-02-24_7.md", "skill": "us_news", "ticker": "TTWO", "date": "2026-02-24", "mtime": 1771940319.0, "ext": ".md", "folder": "us/us_news/TTWO/2026-02-24/zh"}, {"path": "us/us_macro/2026-02-24/macro_report_2026-02-24.md", "href": "us/us_macro/2026-02-24/macro_report_2026-02-24.html", "name": "macro_report_2026-02-24.md", "skill": "us_macro", "ticker": "Unknown", "date": "2026-02-24", "mtime": 1771932533.0, "ext": ".md", "folder": "us/us_macro/2026-02-24"}, {"path": "us/us_macro/2026-02-23/macro_report_2026-02-23.md", "href": "us/us_macro/2026-02-23/macro_report_2026-02-23.html", "name": "macro_report_2026-02-23.md", "skill": "us_macro", "ticker": "Unknown", "date": "2026-02-23", "mtime": 1771870878.0, "ext": ".md", "folder": "us/us_macro/2026-02-23"}, {"path": "us/us_macro/2026-02-23/zh/macro_report_2026-02-23.md", "href": "us/us_macro/2026-02-23/zh/macro_report_2026-02-23.html", "name": "macro_report_2026-02-23.md", "skill": "us_macro", "ticker": "Unknown", "date": "2026-02-23", "mtime": 1771939904.0, "ext": ".md", "folder": "us/us_macro/2026-02-23/zh"}, {"path": "us/us_macro/2026-02-24/zh/macro_report_2026-02-24.md", "href": "us/us_macro/2026-02-24/zh/macro_report_2026-02-24.html", "name": "macro_report_2026-02-24.md", "skill": "us_macro", "ticker": "Unknown", "date": "2026-02-24", "mtime": 1771939904.0, "ext": ".md", "folder": "us/us_macro/2026-02-24/zh"}];
         let viewMode = 'flat';
         
-        // 自動分配顏色的調色盤 (支援深淺色模式的柔和色彩)
         const colorPalette = [
-            { bg: '#e1ecf4', text: '#2c5d80' }, // Blue
-            { bg: '#e6f4ea', text: '#137333' }, // Green
-            { bg: '#fef7e0', text: '#b06000' }, // Yellow
-            { bg: '#fce8e6', text: '#c5221f' }, // Red
-            { bg: '#f3e8fd', text: '#7b1fa2' }, // Purple
-            { bg: '#e0f2f1', text: '#00695c' }, // Teal
-            { bg: '#fff0e5', text: '#d95d39' }, // Orange
-            { bg: '#fce4ec', text: '#c2185b' }  // Pink
+            { bg: '#e1ecf4', text: '#2c5d80' },
+            { bg: '#e6f4ea', text: '#137333' },
+            { bg: '#fef7e0', text: '#b06000' },
+            { bg: '#fce8e6', text: '#c5221f' },
+            { bg: '#f3e8fd', text: '#7b1fa2' },
+            { bg: '#e0f2f1', text: '#00695c' },
+            { bg: '#fff0e5', text: '#d95d39' },
+            { bg: '#fce4ec', text: '#c2185b' }
         ];
 
-        // 將字串轉換為固定的顏色
         function getColorStyle(str) {
             let hash = 0;
             for (let i = 0; i < str.length; i++) {
@@ -92,9 +90,21 @@
             });
 
             filtered.sort((a, b) => {
-                if (sort === 'date_desc') return b.date.localeCompare(a.date);
-                if (sort === 'date_asc') return a.date.localeCompare(b.date);
-                if (sort === 'ticker') return a.ticker.localeCompare(b.ticker) || b.date.localeCompare(a.date);
+                if (sort === 'date_desc') {
+                    let dateCompare = b.date.localeCompare(a.date);
+                    return dateCompare !== 0 ? dateCompare : (b.mtime - a.mtime);
+                }
+                if (sort === 'date_asc') {
+                    let dateCompare = a.date.localeCompare(b.date);
+                    return dateCompare !== 0 ? dateCompare : (a.mtime - b.mtime);
+                }
+                if (sort === 'ticker') {
+                    let tickerCompare = a.ticker.localeCompare(b.ticker);
+                    if (tickerCompare !== 0) return tickerCompare;
+                    
+                    let dateCompare = b.date.localeCompare(a.date);
+                    return dateCompare !== 0 ? dateCompare : (b.mtime - a.mtime);
+                }
                 return 0;
             });
 
@@ -118,7 +128,6 @@
                                      </a>`;
                     }
 
-                    // 動態產生專屬顏色標籤
                     let tickerTag = f.ticker !== 'Unknown' ? `<span class="tag" style="${getColorStyle(f.ticker)}">#${f.ticker}</span>` : '';
                     let skillTag = f.skill !== 'Unknown' ? `<span class="tag" style="${getColorStyle(f.skill)}">@${f.skill}</span>` : '';
 
