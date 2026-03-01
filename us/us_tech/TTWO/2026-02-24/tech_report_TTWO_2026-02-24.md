@@ -2,7 +2,7 @@
 
 ## 📊 Technical Analysis Chart
 
-**Chart File**: ![技術分析圖表](./TTWO_chart_6mo_20260224.png) (stored in the same folder as this report)
+**Chart File**: `TTWO_chart_6mo_20260224.png` (stored in the same folder as this report)
 
 **Chart Description**:
 - 🕯️ Candlestick chart showing price action over 6-month period
