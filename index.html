@@ -17,8 +17,11 @@
         button:hover { opacity: 0.8; }
         .file-list { list-style: none; padding: 0; }
         .file-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 10px; padding: 12px; display: flex; flex-direction: column; gap: 8px; }
-        .file-card a { color: var(--primary); text-decoration: none; font-weight: 500; word-break: break-all; }
-        .file-card a:hover { text-decoration: underline; }
+        .file-card a.file-title { color: var(--primary); text-decoration: none; font-weight: 500; word-break: break-all; }
+        .file-card a.file-title:hover { text-decoration: underline; }
+        /* 新增：縮圖樣式 */
+        .thumbnail { max-width: 100%; max-height: 250px; border-radius: 6px; margin-top: 8px; object-fit: contain; background: var(--bg); border: 1px solid var(--border); display: block; }
+        .thumbnail:hover { opacity: 0.9; }
         .tags { display: flex; gap: 6px; flex-wrap: wrap; font-size: 12px; }
         .tag { background: var(--tag-bg); color: var(--tag-text); padding: 2px 8px; border-radius: 12px; }
         .folder-group { margin-top: 15px; margin-bottom: 5px; font-weight: bold; color: var(--text); border-bottom: 1px solid var(--border); padding-bottom: 5px; }
@@ -27,7 +30,7 @@
 </head>
 <body>
     <h1>📈 JD Invest Reports</h1>
-    <div class="update-time">Last updated: 2026-03-01 20:48:25</div>
+    <div class="update-time">Last updated: 2026-03-01 20:50:41</div>
 
     <div class="controls">
         <input type="text" id="searchInput" placeholder="Search files...">
@@ -85,9 +88,19 @@
                 let html = '<ul class="file-list">';
                 filtered.forEach(f => {
                     let icon = f.ext === '.md' ? '📄' : '🖼️';
+                    let mediaHtml = '';
+                    
+                    // 新增：如果是圖片，就產生一個帶有 lazy loading 的縮圖
+                    if (f.ext === '.jpg' || f.ext === '.png') {
+                        mediaHtml = `<a href="${f.href}" target="_blank">
+                                        <img src="${f.href}" class="thumbnail" loading="lazy" alt="${f.name}">
+                                     </a>`;
+                    }
+
                     html += `
                         <li class="file-card">
-                            <a href="${f.href}">${icon} ${f.name}</a>
+                            <a href="${f.href}" class="file-title">${icon} ${f.name}</a>
+                            ${mediaHtml}
                             <div class="tags">
                                 <span class="tag">${f.date}</span>
                                 ${f.ticker !== 'Unknown' ? `<span class="tag">#${f.ticker}</span>` : ''}
@@ -110,7 +123,7 @@
                         let icon = f.ext === '.md' ? '📄' : '🖼️';
                         html += `
                             <li class="file-card" style="margin-left: 15px; padding: 8px;">
-                                <a href="${f.href}">${icon} ${f.name}</a>
+                                <a href="${f.href}" class="file-title">${icon} ${f.name}</a>
                             </li>`;
                     });
                     html += '</ul>';
